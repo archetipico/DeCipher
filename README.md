@@ -1,20 +1,17 @@
-<h1>DeCipher</h1>
-Print output using a cool hacker-like effect.
+# DeCipher
 
-<h2>Install</h2>
-<ol>
-    <li>Clone this repository</li>
-    <li>From inside the repository run <code>./install.sh</code></li>
-    <li>Open a new terminal</li>
-</ol>
+Print output with a cool hacker-like effect.
 
-<h2>Usage</h2>
+## Install
+1. Clone this repository
+2. Run `./install.sh` from inside the repository
+3. That's it!
+
+## Usage
 You can pass text through arguments or STDIN, like this:
-<ol>
-    <li><code>decp</code> and then it will wait for something to read</li>
-    <li><code>decp "hello world"</code></li>
-    <li><code>echo "hello world" | decp</code></li>
-    <li><code>cat filename | decp</code></li>
-</ol>
+1. `decp` (waits for input)
+2. `decp "hello world"`
+3. `echo "hello world" | decp`
+4. `cat filename | decp`
 
-<i>Notice that since decryption speed is proportional to line length, if the line is too long glitches can happen.</i>
+*Note: Decryption speed is proportional to line length, and long lines may cause glitches.*

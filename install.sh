@@ -1,16 +1,19 @@
 #!/bin/bash
 
-if [[ $(ls -al ~ | grep -c ".DeCipher") -eq 0 ]]; then
-    mkdir ~/.DeCipher
+DECIPHER_DIR=~/.DeCipher
+
+# Check if the .DeCipher directory exists, create it if not
+if [[ ! -d "$DECIPHER_DIR" ]]; then
+    mkdir "$DECIPHER_DIR"
 fi
 
-cp -r ./src ~/.DeCipher
+cp -r ./src "$DECIPHER_DIR"
 
-if [[ $(cat ~/.bashrc | grep -c "decipher.sh") -ne 0 ]]; then
-    echo "Alias 'decp' already exists, no need to re-open the terminal."
-else
-    echo "alias decp='bash ~/.DeCipher/src/decipher.sh'" >> ~/.bashrc
-    echo "Close this terminal and open a new one to complete the installation process."
-fi
+# Add the 'decp' alias to .bashrc
+echo "alias decp='bash $DECIPHER_DIR/src/decipher.sh'" >> ~/.bashrc
+# Refresh .bashrc
+source ~/.bashrc
+echo "All good"
+echo "If 'decp' does not work, open a new terminal"
 
 exit 0
